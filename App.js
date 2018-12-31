@@ -1,13 +1,14 @@
-import React, { Component } from "react";
-import {Text} from 'react-native'
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import HomeScreen from "./src/screens/HomeScreen";
-import TripScreen from './src/screens/TripsScreen'
+import TripsScreen from './src/screens/TripsScreen'
+import TripScreen from './src/screens/TripScreen'
+
 
 const appNavigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Trips: TripScreen
+    Trips: TripsScreen,
+    Trip: TripScreen
   },
   {
     initialRouteName: "Trips"
