@@ -10,31 +10,20 @@ class TripScreen extends Component {
   };
   renderItem = item => {
     return (
-      <View style={{ flex: 1, flexDirection: "row", paddingBottom: 16 }}>
-        <View style={{ flex: 1 }}>
+      <View style={styles.item}>
+        <View style={styles.wrapperInfo}>
           <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 18
-            }}
+            style={styles.itemName}
           >
             {item.item.name}
           </Text>
           <Text>{item.item.description}</Text>
         </View>
         <View
-          style={{
-            alignItems: "flex-end",
-            justifyContent: "center",
-            paddingRight: 16
-          }}
+          style={styles.wrapperItemPrice}
         >
           <Text
-            style={{
-              textAlign: "center",
-              color: "#2463DC",
-              fontWeight: "bold"
-            }}
+            style={styles.itemPrice}
           >
             {item.item.price}
           </Text>
@@ -71,35 +60,55 @@ class TripScreen extends Component {
           price: 50,
           lat: 0,
           long: 0
+        },
+        {
+          id: "c3",
+          name: "Rent a car",
+          description: "Aluguel de Carro",
+          price: 50,
+          lat: 0,
+          long: 0
+        },
+        {
+          id: "c3",
+          name: "Rent a car",
+          description: "Aluguel de Carro",
+          price: 50,
+          lat: 0,
+          long: 0
+        },
+        {
+          id: "c3",
+          name: "Rent a car",
+          description: "Aluguel de Carro",
+          price: 50,
+          lat: 0,
+          long: 0
+        },
+        {
+          id: "c3",
+          name: "Rent a car",
+          description: "Aluguel de Carro",
+          price: 50,
+          lat: 0,
+          long: 0
         }
       ]
     };
     return (
-      <View style={{ flex: 1 }}>
+      <View style={styles.wrapper}>
         <View
-          style={{
-            height: 192,
-            backgroundColor: "grey"
-          }}
+          style={styles.header}
         >
           <Text
-            style={{
-              position: "absolute",
-              left: 16,
-              bottom: 16
-            }}
+            style={styles.backButton}
           >
             {trip.name}
           </Text>
-          <Text style={styles.price}>{trip.price}</Text>
+          <Text style={styles.tripPrice}>{trip.price}</Text>
         </View>
         <View
-          style={{
-            position: "absolute",
-            top: 26,
-            left: 16,
-            padding: 10
-          }}
+          style={styles.tripName}
         >
           <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
             <Image source={assets.arrow} />
