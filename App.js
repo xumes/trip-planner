@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import HomeScreen from './src/screens/HomeScreen';
-
-
 
 export default class App extends Component {
   render() {
