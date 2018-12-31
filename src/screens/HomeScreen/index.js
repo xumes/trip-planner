@@ -11,6 +11,9 @@ import assets from "./assets";
 import styles from "./styles";
 
 class HomeScreen extends Component {
+  static navigationOptions = {
+    header: null
+  }
   state = {
     show: true
   };
@@ -42,7 +45,7 @@ class HomeScreen extends Component {
             </View>
           </TouchableWithoutFeedback>
         ) : (
-          <TouchableWithoutFeedback onPress={this.handleCounter}>
+          <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Trips')}>
             <View style={styles.buttonEmptyStateBackground}>
               <Image source={assets.pin} style={styles.pin} />
               <Text style={styles.buttonEmptyStateText}>

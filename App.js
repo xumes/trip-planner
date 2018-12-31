@@ -1,32 +1,17 @@
-import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
-import HomeScreen from './src/screens/HomeScreen';
+import React, { Component } from "react";
+import {Text} from 'react-native'
+import { createStackNavigator, createAppContainer } from "react-navigation";
+import HomeScreen from "./src/screens/HomeScreen";
+import TripScreen from './src/screens/TripsScreen'
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <HomeScreen />
-      </View>
-    );
+const appNavigator = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Trips: TripScreen
+  },
+  {
+    initialRouteName: "Trips"
   }
-}
+);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+export default createAppContainer(appNavigator);
