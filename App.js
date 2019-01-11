@@ -11,7 +11,7 @@ const appNavigator = createStackNavigator(
     Trip: TripScreen
   },
   {
-    initialRouteName: "Trips"
+    initialRouteName: "Home"
   }
 );
 
