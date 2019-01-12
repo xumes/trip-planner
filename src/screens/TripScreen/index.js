@@ -3,6 +3,7 @@ import { View, Text, FlatList, TouchableOpacity, Image } from "react-native";
 
 import styles from "./styles";
 import assets from "./assets";
+import MapView, { Marker } from "react-native-maps";
 
 class TripScreen extends Component {
   static navigationOptions = {
@@ -12,21 +13,11 @@ class TripScreen extends Component {
     return (
       <View style={styles.item}>
         <View style={styles.wrapperInfo}>
-          <Text
-            style={styles.itemName}
-          >
-            {item.item.name}
-          </Text>
+          <Text style={styles.itemName}>{item.item.name}</Text>
           <Text>{item.item.description}</Text>
         </View>
-        <View
-          style={styles.wrapperItemPrice}
-        >
-          <Text
-            style={styles.itemPrice}
-          >
-            {item.item.price}
-          </Text>
+        <View style={styles.wrapperItemPrice}>
+          <Text style={styles.itemPrice}>{item.item.price}</Text>
         </View>
       </View>
     );
@@ -97,22 +88,28 @@ class TripScreen extends Component {
     };
     return (
       <View style={styles.wrapper}>
-        <View
-          style={styles.header}
-        >
-          <Text
-            style={styles.backButton}
+        <View style={styles.header}>
+          <MapView
+            style={{ flex: 1 }}
+            initialRegion={{
+              latitude: 37.78825,
+              longitude: -122.4324,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421
+            }}
           >
-            {trip.name}
-          </Text>
+            <Marker
+              draggable
+              coordinate={{ latitude: 37.78825, longitude: -122.4324 }}
+            />
+          </MapView>
+          <View style={styles.backButton}>
+            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+              <Image source={assets.arrow} />
+            </TouchableOpacity>
+          </View>
+          <Text style={styles.tripName}>{trip.name}</Text>
           <Text style={styles.tripPrice}>{trip.price}</Text>
-        </View>
-        <View
-          style={styles.tripName}
-        >
-          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-            <Image source={assets.arrow} />
-          </TouchableOpacity>
         </View>
         <FlatList
           style={{ flex: 1 }}

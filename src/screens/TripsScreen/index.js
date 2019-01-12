@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, Image } from "react-native";
+import MapView from "react-native-maps";
 import Trip from "./Trip";
-import isIphoneX from '../../utils/isIphoneX'
+import isIphoneX from "../../utils/isIphoneX";
+import assets from "../TripScreen/assets";
 
 class TripsScreen extends Component {
   static navigationOptions = {
@@ -19,7 +21,7 @@ class TripsScreen extends Component {
   };
 
   render() {
-    console.log(isIphoneX())
+    console.log(isIphoneX());
     const trips = [
       { id: "a1", name: "New York 2019", price: "R$ 7500" },
       { id: "b2", name: "Safari Africa do Sul", price: "R$ 5550" },
@@ -35,15 +37,28 @@ class TripsScreen extends Component {
       >
         <View
           style={{
-            backgroundColor: "pink",
             flex: 1
           }}
         >
-          <Text>Mapa</Text>
+          <MapView
+            style={{ flex: 1 }}
+            initialRegion={{
+              latitude: 37.78825,
+              longitude: -122.4324,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421
+            }}
+          />
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("AddTrip")}
+            style={{ position: "absolute", bottom: 0, right: 20, padding: 10 }}
+          >
+            <Image source={assets.plus} />
+          </TouchableOpacity>
         </View>
         <View
           style={{
-            backgroundColor: "yellow"
+            backgroundColor: "white"
           }}
         />
         <FlatList
@@ -52,9 +67,7 @@ class TripsScreen extends Component {
           horizontal
           pagingEnabled
           keyExtractor={item => item.id}
-          style={[
-            isIphoneX() ? {marginBottom: 20} : null
-          ]}
+          style={[isIphoneX() ? { marginBottom: 20 } : null]}
         />
       </View>
     );
