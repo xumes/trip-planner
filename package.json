@@ -1,5 +1,6 @@
 {
   "name": "TripPlanner",
+  "author": "Reginaldo Santos (reginaldosantos.br@gmail.com)",
   "version": "0.0.1",
   "private": true,
   "scripts": {

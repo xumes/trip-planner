@@ -1,6 +1,6 @@
-import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import styles from "./styles";
+import React from 'react'
+import { View, Text, TouchableOpacity } from 'react-native'
+import styles from './styles'
 
 const Trip = props => {
   return (
@@ -11,7 +11,7 @@ const Trip = props => {
       <Text>{props.title}</Text>
       <Text style={styles.price}>{props.price}</Text>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
-export default Trip;
+export default Trip

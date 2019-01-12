@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, FlatList } from "react-native";
 import Trip from "./Trip";
+import isIphoneX from '../../utils/isIphoneX'
 
 class TripsScreen extends Component {
   static navigationOptions = {
@@ -18,6 +19,7 @@ class TripsScreen extends Component {
   };
 
   render() {
+    console.log(isIphoneX())
     const trips = [
       { id: "a1", name: "New York 2019", price: "R$ 7500" },
       { id: "b2", name: "Safari Africa do Sul", price: "R$ 5550" },
@@ -33,7 +35,7 @@ class TripsScreen extends Component {
       >
         <View
           style={{
-            backgroundColor: "red",
+            backgroundColor: "pink",
             flex: 1
           }}
         >
@@ -50,6 +52,9 @@ class TripsScreen extends Component {
           horizontal
           pagingEnabled
           keyExtractor={item => item.id}
+          style={[
+            isIphoneX() ? {marginBottom: 20} : null
+          ]}
         />
       </View>
     );
