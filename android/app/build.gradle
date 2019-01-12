@@ -140,6 +140,12 @@ dependencies {
     compile project(':react-native-maps')
     compile project(':react-native-gesture-handler')
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation(project(':react-native-maps')){
+       exclude group: 'com.google.android.gms', module: 'play-services-base'
+       exclude group: 'com.google.android.gms', module: 'play-services-maps'
+   }
+    implementation 'com.google.android.gms:play-services-base:10.2.4'
+    implementation 'com.google.android.gms:play-services-maps:10.2.4'
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
 }
