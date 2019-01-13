@@ -53,7 +53,7 @@ class TripScreen extends Component {
           long: 0
         },
         {
-          id: "c3",
+          id: "d4",
           name: "Rent a car",
           description: "Aluguel de Carro",
           price: 50,
@@ -61,7 +61,7 @@ class TripScreen extends Component {
           long: 0
         },
         {
-          id: "c3",
+          id: "e5",
           name: "Rent a car",
           description: "Aluguel de Carro",
           price: 50,
@@ -69,7 +69,7 @@ class TripScreen extends Component {
           long: 0
         },
         {
-          id: "c3",
+          id: "f6",
           name: "Rent a car",
           description: "Aluguel de Carro",
           price: 50,
@@ -77,7 +77,7 @@ class TripScreen extends Component {
           long: 0
         },
         {
-          id: "c3",
+          id: "g7",
           name: "Rent a car",
           description: "Aluguel de Carro",
           price: 50,
@@ -111,16 +111,19 @@ class TripScreen extends Component {
           <Text style={styles.tripName}>{trip.name}</Text>
           <Text style={styles.tripPrice}>{trip.price}</Text>
         </View>
-        <FlatList
-          style={{ flex: 1 }}
-          contentContainerStyle={{
-            paddingTop: 16,
-            paddingLeft: 16
-          }}
-          data={trip.places}
-          renderItem={this.renderItem}
-          keyExtractor={item => item.id}
-        />
+        
+          <Text style={styles.labelName}>Pontos de interesse</Text>
+          <FlatList
+            style={{ flex: 1 }}
+            contentContainerStyle={{
+              paddingTop: 16,
+              paddingLeft: 16
+            }}
+            data={trip.places}
+            renderItem={this.renderItem}
+            keyExtractor={item => item.id}
+          />
+        
       </View>
     );
   }

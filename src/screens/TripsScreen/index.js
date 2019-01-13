@@ -60,15 +60,16 @@ class TripsScreen extends Component {
           style={{
             backgroundColor: "white"
           }}
-        />
-        <FlatList
-          data={trips}
-          renderItem={this.renderItem}
-          horizontal
-          pagingEnabled
-          keyExtractor={item => item.id}
-          style={[isIphoneX() ? { marginBottom: 20 } : null]}
-        />
+        >
+          <FlatList
+            data={trips}
+            renderItem={this.renderItem}
+            horizontal
+            pagingEnabled
+            keyExtractor={item => item.id}
+            style={[isIphoneX() ? { marginBottom: 20 } : null]}
+          />
+        </View>
       </View>
     );
   }

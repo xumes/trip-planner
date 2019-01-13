@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {
   View,
   Text,
-  FlatList,
   TouchableOpacity,
   Image,
   TextInput,
@@ -34,8 +33,8 @@ class TripScreen extends Component {
     if (tripsAS) {
       trips = JSON.parse(tripsAS);
     }
-    trips.push(trip)
-    await AsyncStorage.setItem('trips', JSON.stringify(trips))
+    trips.push(trip);
+    await AsyncStorage.setItem("trips", JSON.stringify(trips));
     console.log("trips", trips);
   };
 
@@ -54,68 +53,6 @@ class TripScreen extends Component {
   };
 
   render() {
-    const trip = {
-      name: "New York 2019",
-      price: "R$ 5000",
-      places: [
-        {
-          id: "a1",
-          name: "Nova Iorque",
-          description: "chegada",
-          price: 1000,
-          lat: 0,
-          long: 0
-        },
-        {
-          id: "b2",
-          name: "Xumes Hotel",
-          description: "Hospedagem",
-          price: 100,
-          lat: 0,
-          long: 0
-        },
-        {
-          id: "c3",
-          name: "Rent a car",
-          description: "Aluguel de Carro",
-          price: 50,
-          lat: 0,
-          long: 0
-        },
-        {
-          id: "c3",
-          name: "Rent a car",
-          description: "Aluguel de Carro",
-          price: 50,
-          lat: 0,
-          long: 0
-        },
-        {
-          id: "c3",
-          name: "Rent a car",
-          description: "Aluguel de Carro",
-          price: 50,
-          lat: 0,
-          long: 0
-        },
-        {
-          id: "c3",
-          name: "Rent a car",
-          description: "Aluguel de Carro",
-          price: 50,
-          lat: 0,
-          long: 0
-        },
-        {
-          id: "c3",
-          name: "Rent a car",
-          description: "Aluguel de Carro",
-          price: 50,
-          lat: 0,
-          long: 0
-        }
-      ]
-    };
     return (
       <View style={styles.wrapper}>
         <View style={styles.header}>
@@ -124,18 +61,22 @@ class TripScreen extends Component {
               <Image source={assets.arrow} />
             </TouchableOpacity>
           </View>
-          <Text style={styles.tripName}>{trip.name}</Text>
-          <Text style={styles.tripPrice}>{trip.price}</Text>
+          <Text style={styles.tripName}>{this.state.trip}</Text>
         </View>
-        <TextInput
-          style={styles.input}
-          placeholder="Nome da viagem"
-          onChangeText={txt => this.setState({ trip: txt })}
-        />
+        <View style={styles.wrapperLabelTrip}>
+          <Text style={styles.labelTripName}>
+            Crie a sua próxima viagem
+          </Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Nome da viagem"
+            onChangeText={txt => this.setState({ trip: txt })}
+          />
 
-        <TouchableOpacity onPress={this.handleSave}>
-          <Text style={styles.btn}>Salvar Viagem</Text>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={this.handleSave}>
+            <Text style={styles.btn}>Salvar Viagem</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

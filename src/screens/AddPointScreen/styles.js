@@ -25,6 +25,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingRight: 16
   },
+  labelTripName: {
+    backgroundColor: "blue",
+    color: "white",
+    padding: 16,
+    fontWeight: "bold",
+    fontSize: 18,
+    textAlign: "center"
+  },
+  wrapperLabelTrip: { paddingTop: 16 },
   itemPrice: {
     textAlign: 'right',
     color: '#2463DC',
@@ -32,7 +41,7 @@ const styles = StyleSheet.create({
   },
   wrapper: { flex: 1 },
   header: {
-    height: 192,
+    height: "40%",
     backgroundColor: 'grey'
   },
   backButton: {
@@ -59,7 +68,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#E5E5E5',
     padding: 16,
     margin: 16,
-    alignItems: 'center'
+    alignItems: 'center',
+    textAlign: 'center'
   }
 
 })

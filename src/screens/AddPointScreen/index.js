@@ -131,6 +131,10 @@ class AddPointScreen extends Component {
           <Text style={styles.tripName}>{trip.name}</Text>
           <Text style={styles.tripPrice}>{trip.price}</Text>
         </View>
+        <View style={styles.wrapperLabelTrip}>
+        <Text style={styles.labelTripName}>
+          Adicione pontos de interesse
+        </Text>
         <TextInput
           style={styles.input}
           placeholder="Nome do Ponto"
@@ -149,6 +153,7 @@ class AddPointScreen extends Component {
         <TouchableOpacity>
           <Text style={styles.btn}>Salvar Ponto</Text>
         </TouchableOpacity>
+      </View>
       </View>
     );
   }
