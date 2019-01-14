@@ -46,8 +46,8 @@ class TripScreen extends Component {
   getImage = async tripImage => {
     console.log("buscando imagens");
     const params = {
-      key: "AIzaSyDdLFl1C3KWoIlPAEJZ5zZ7JSm6P851zoE",
-      cx: "015473185663676622888:00mcms7yb3a",
+      key: "<<API_KEY>>",
+      cx: "<<CX>>",
       searchType: "image",
       lr: "lang_pt",
       num: 1,
