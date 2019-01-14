@@ -33,7 +33,11 @@ const styles = StyleSheet.create({
   wrapper: { flex: 1 },
   header: {
     height: "40%",
-    backgroundColor: "grey"
+  },
+  headerImage: {
+    alignItems: 'stretch',
+    height: "100%",
+    resizeMode: 'contain'
   },
   backButton: {
     position: "absolute",

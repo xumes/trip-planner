@@ -51,13 +51,14 @@ const styles = StyleSheet.create({
     padding: 10
   },
   labelName: {
-    backgroundColor: "blue",
-    color: "white",
+    color: "darkblue",
+    marginRight: 16,
     marginTop: 16,
     padding: 16,
     fontWeight: "bold",
     fontSize: 18,
-    textAlign: "center"
+    textAlign: "left",
+    textDecorationLine: 'underline'
   }
 });
 

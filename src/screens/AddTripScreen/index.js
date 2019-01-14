@@ -5,8 +5,10 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
-  AsyncStorage
+  AsyncStorage,
+  ImageBackground
 } from "react-native";
+import axios from "axios";
 
 import styles from "./styles";
 import assets from "./assets";
@@ -17,16 +19,18 @@ class TripScreen extends Component {
   };
   state = {
     trip: "",
-    price: 0
+    price: 0,
+    image:
+      "https://www.estudokids.com.br/wp-content/uploads/2015/05/viagem-ou-viajem-qual-o-correto.jpg"
   };
 
   handleSave = async () => {
+    await this.getImage(this.state.trip);
     const trip = {
       id: new Date().getTime(),
       trip: this.state.trip,
       price: 0,
-      latitude: 0,
-      longitude: 0
+      image: this.state.image
     };
     const tripsAS = await AsyncStorage.getItem("trips");
     let trips = [];
@@ -36,6 +40,23 @@ class TripScreen extends Component {
     trips.push(trip);
     await AsyncStorage.setItem("trips", JSON.stringify(trips));
     console.log("trips", trips);
+    console.log("*** Imagem", this.state.image);
+  };
+
+  getImage = async tripImage => {
+    console.log("buscando imagens");
+    const params = {
+      key: "AIzaSyDdLFl1C3KWoIlPAEJZ5zZ7JSm6P851zoE",
+      cx: "015473185663676622888:00mcms7yb3a",
+      searchType: "image",
+      lr: "lang_pt",
+      num: 1,
+      q: tripImage
+    };
+    return axios
+      .get("https://www.googleapis.com/customsearch/v1", { params })
+      .then(resp => this.setState({ image: resp.data.items[0].link }))
+      .catch(err => console.log(err));
   };
 
   renderItem = item => {
@@ -56,17 +77,17 @@ class TripScreen extends Component {
     return (
       <View style={styles.wrapper}>
         <View style={styles.header}>
+          <ImageBackground source={{uri: this.state.image}} style={styles.headerImage}>
           <View style={styles.backButton}>
             <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
               <Image source={assets.arrow} />
             </TouchableOpacity>
           </View>
           <Text style={styles.tripName}>{this.state.trip}</Text>
+          </ImageBackground>
         </View>
         <View style={styles.wrapperLabelTrip}>
-          <Text style={styles.labelTripName}>
-            Crie a sua próxima viagem
-          </Text>
+          <Text style={styles.labelTripName}>Crie a sua próxima viagem</Text>
           <TextInput
             style={styles.input}
             placeholder="Nome da viagem"

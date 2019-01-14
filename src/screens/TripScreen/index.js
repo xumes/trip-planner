@@ -111,19 +111,23 @@ class TripScreen extends Component {
           <Text style={styles.tripName}>{trip.name}</Text>
           <Text style={styles.tripPrice}>{trip.price}</Text>
         </View>
-        
+        <View>
           <Text style={styles.labelName}>Pontos de interesse</Text>
-          <FlatList
-            style={{ flex: 1 }}
-            contentContainerStyle={{
-              paddingTop: 16,
-              paddingLeft: 16
-            }}
-            data={trip.places}
-            renderItem={this.renderItem}
-            keyExtractor={item => item.id}
+          <Image
+            style={{ position: "absolute", right: 16, top: 14 }}
+            source={assets.plus}
           />
-        
+        </View>
+        <FlatList
+          style={{ flex: 1 }}
+          contentContainerStyle={{
+            paddingTop: 16,
+            paddingLeft: 16
+          }}
+          data={trip.places}
+          renderItem={this.renderItem}
+          keyExtractor={item => item.id}
+        />
       </View>
     );
   }

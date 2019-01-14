@@ -117,7 +117,7 @@ class AddPointScreen extends Component {
           >
             <Marker
               draggable
-              coordinate={{ latitude: 37.78825, longitude: -122.4324 }}
+              coordinate={{ latitude: this.state.position.latitude, longitude: this.state.position.longitude }}
               onDragEnd={evt =>
                 this.setState({ position: evt.nativeEvent.coordinate })
               }
@@ -138,17 +138,17 @@ class AddPointScreen extends Component {
         <TextInput
           style={styles.input}
           placeholder="Nome do Ponto"
-          onChangeText={txt => this.setState({ pointName: txt })}
+          onChangeText={nome => this.setState({ pointName: nome })}
         />
         <TextInput
           style={styles.input}
           placeholder="Descrição"
-          onChangeText={txt => this.setState({ description: txt })}
+          onChangeText={descr => this.setState({ description: descr })}
         />
         <TextInput
           style={styles.input}
           placeholder="Preço"
-          onChangeText={txt => this.setState({ price: txt })}
+          onChangeText={preco => this.setState({ price: parseFloar(preco) })}
         />
         <TouchableOpacity>
           <Text style={styles.btn}>Salvar Ponto</Text>
